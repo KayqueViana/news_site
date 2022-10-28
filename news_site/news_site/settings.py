@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-bujj2n8d@0)tuv!=!kn0#tr02gh#l)08qlz)-5-@^+27@ujb10
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', "127.0.0.1"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'news_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'news'),
-        'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASS', 'admin305'),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': '5432',
+        'NAME': 'news',
+        'USER': 'postgres',
+        'PASSWORD': 'admin305',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 

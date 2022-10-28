@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.conf import settings
 
 from .models import Notice
+from .forms import NewsletterForm
 
 from .serializers import NoticeSerializer
 
@@ -18,9 +20,15 @@ def noticeInternal(request, id):
    return render(request, "news/notice.html", {"notice": serializer.data})
 
 def sendEmail(request):
-    subject = 'That’s your subject'
-    message = "Texto"
-    from_email = settings.EMAIL_HOST_USER
-    to = request.POST["email-to"]
-    send_mail(subject, message, from_email, [to])
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            subject = 'That’s your subject'
+            message = "Texto"
+            from_email = settings.EMAIL_HOST_USER
+            to = request.POST["email"]
+            send_mail(subject, message, from_email, [to])
+            return redirect("/")
     return redirect("/")

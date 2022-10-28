@@ -3,8 +3,7 @@ version: "3"
 
 services:
   news_site:
-    build:
-      context: . #Sets the directory for docker-compose to build.
+    build: . 
 
     # Maps port on the local machine to port on Docker image
     ports:
@@ -14,12 +13,12 @@ services:
       - .:/django_news_site
     
     # Handles the command used to run the project in the Docker container.
-    command: sh -c "python manage.py runserver 0.0.0.0:8000" 
+    command: python manage.py runserver 0.0.0.0:8000
 
     environment:
         # The environment variable credetials that is needed 
       # in the settings for Postgres.
-      - DB_HOST=127.0.0.1
+      - DB_HOST=localhost
       - DB_NAME=news
       - DB_USER=postgres
       - DB_PASS=admin305

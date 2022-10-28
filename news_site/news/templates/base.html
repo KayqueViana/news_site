@@ -45,7 +45,7 @@
         <form action="/send-email/" method="POST">
           {% csrf_token %}
           <div class="newsletter">
-            <input type="email" class="form-control" id="newsletter" name="email-to" placeholder="NEWSLETTER">
+            <input type="email" class="form-control" id="newsletter" name="email" placeholder="NEWSLETTER">
            <button type="button" class="send-button"><i class="fa-solid fa-paper-plane"></i></button>
 
            <div class="modal" tabindex="-1" id="warningModal">
