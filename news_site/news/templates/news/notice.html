@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}{{notice.title}}{% endblock %}
+
+{% block content %}
+    <div class="internal-notice">
+        {% if notice.image %}
+            <img src="{{notice.image}}" alt="" class="d-block w-100">
+        {% else %}
+            <img src="https://th.bing.com/th/id/R.620dc5cab89cf7a11f213df6fb26b293?rik=s0%2falsQngsX8IQ&pid=ImgRaw&r=0" alt="" class="d-block w-100">
+        {% endif %}
+        <div class="title-field">
+            <h1>{{notice.title}}</h1>
+            <h3>{{notice.subtitle}}</h3>
+        </div>
+        <div class="paragraph">
+            <p>{{notice.description}}</p>
+            <div class="date">
+                <p><small class="text-muted">{{notice.date}}</small></p>
+            </div>
+        </div>
+        <div class="card mb-3 card-profile">
+            <div class="row g-0">
+              <div class="col-md-4">
+                {% if notice.photo %}
+                    <img src="{{notice.photo}}" class="img-fluid rounded-start" alt="...">
+                {% else %}
+                    <img src="https://yt3.ggpht.com/a/AATXAJxme8fdo-cDKfjHyzlScrz4F6_77Uu5wxmKCA=s900-c-k-c0xffffffff-no-rj-mo" class="img-fluid rounded-start" alt="...">
+                {% endif %}
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    {% if notice.author %}
+                        <h5 class="card-title">{{notice.author}}</h5>
+                    {% else %}
+                        <h5 class="card-title">Autor Anônimo</h5>
+                    {% endif %}
+                  <p class="card-text">{{notice.bibliography}}</p>
+                  <p class="card-text"><small class="text-muted">Última atualização em: {{notice.updated_at}}</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+{% endblock %}

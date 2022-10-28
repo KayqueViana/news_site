@@ -1,0 +1,165 @@
+.container-fluid {
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    z-index: 90;
+    position: fixed;
+    width: 100%;
+    display: block;
+    transition: top 0.5s ease;
+}
+.navbar-nav {
+    margin: auto;
+}
+.navbar-expand-lg .navbar-collapse{
+    margin-left: 800px;
+}
+.navbar-brand {
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 5px;
+    color:rgb(255, 255, 255);
+    font-size: 60px;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+    opacity: 0%;
+    color: rgb(14, 14, 14);
+    padding-right: 50px;
+    letter-spacing: 1px;
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover{
+    color: #ff2323;
+    letter-spacing: 1px;
+}
+
+/* Search */
+.fa-solid.fa-search{
+    position: absolute;
+    top: 150px;
+    right: 130px
+}
+.search-div{
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* Homepage */
+    .swiper{
+        max-width: 100%;
+    }
+    .swiper .swiper-wrapper .swiper-slide{
+        width: 100%;
+        height: 50vw;
+    }
+    .swiper .swiper-wrapper .swiper-slide img{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+/* ícones */
+    .swiper-button-prev, .swiper-button-next{
+        color: #fff;
+    }
+
+/* cards de noticias */
+.lower-notices{
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+.lower-notices h3{
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    color:rgb(177, 26, 26);
+    position: relative;
+}
+.lower-notices .card-deck .card{
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    max-width: 30%;
+    max-height: 450px;
+}
+.lower-notices .card-deck .card-img-top{
+    height: 250px;
+    object-fit: cover;
+}
+.lower-notices .card-deck .card-body{
+    height: 250px;
+}
+
+/* página interna  */
+.internal-notice .title-field{
+    width: 100%;
+    overflow-wrap: break-word;
+}
+.internal-notice .title-field h1{
+    font-size: 4rem;
+    font-family: 'ui-monospace';
+    font-weight: bold;
+}
+.internal-notice .paragraph{
+    min-height: 200px;
+}
+/* card profile  */
+.card.card-profile{
+    max-width: 700px;
+}
+.card.card-profile img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.card.card.card-profile .card-body{
+    width: 500px;
+}
+/* newsletter */
+.newsletter{
+    top: 50px;
+    position: relative;
+}
+.newsletter .form-control{
+    font-size: 50px;
+    font-weight: bold;
+    height: 80px;
+}
+.newsletter .form-control::placeholder{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+.send-button{
+    border: none;
+    background-color: transparent;
+    position: relative;
+    bottom: 62px;
+    left: 95%;
+}
+.send-button:hover .fa-solid.fa-paper-plane{
+    color: rgb(177, 26, 26);
+}
+.fa-solid.fa-paper-plane{
+    font-size: 40px;
+}
+
+/* Rodapé */
+footer{
+    /* position: fixed; */
+    /* width: 100%; */
+    background-color: #333;
+    height: 200px;
+    border-top: 2px solid #202020;
+}
+footer p{
+    color: #f5f5f5;
+    text-align: center;
+    top: 40%;
+    position: relative;
+}

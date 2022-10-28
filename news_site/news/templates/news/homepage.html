@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      {% for notice in notices %}
+        {% if notice.image and notice.highlighted == True %}
+          <div class="swiper-slide">
+            <a href="/notice/{{notice.id}}">
+              <img src="{{notice.image}}" class="d-block w-100" alt="..." draggable="false">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <!-- Navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <div class="lower-notices" id="lower-notices">
+    <h3>Notícias Gerais</h3>
+    <div class="card-deck" id="notice-carousel">
+      {% for notice in notices %}
+        <div class="card">
+          <a href="/notice/{{notice.id}}">
+            {% if notice.image %}
+              <img class="card-img-top" src="{{notice.image}}" alt="img">
+            {% else %}
+              <img class="card-img-top" src="https://th.bing.com/th/id/R.620dc5cab89cf7a11f213df6fb26b293?rik=s0%2falsQngsX8IQ&pid=ImgRaw&r=0" alt="img">  
+            {% endif %}
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{notice.title}}</h5>
+            <p class="card-text">{{notice.description}}</p>
+          </div>
+        </div>
+      {% endfor %}
+      
+      </div>
+  </div>
+
+{% endblock %}
