@@ -60,13 +60,10 @@ $(document).ready(function() {
     });
 });
 
-$('.goto-notices').on('click', function(event){
-  
+$('.nav-link').on('click', function(event){
   event.preventDefault();
-  
   let section  = $(this).attr('href');
-  let top = $(section).offset().top - 90;
-  
+  let top = $(section).offset().top - 78;
   $('html').animate({
     scrollTop: top
   }, 500)

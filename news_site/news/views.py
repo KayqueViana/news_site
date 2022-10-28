@@ -30,5 +30,5 @@ def sendEmail(request):
             from_email = settings.EMAIL_HOST_USER
             to = request.POST["email"]
             send_mail(subject, message, from_email, [to])
-            return redirect("/")
-    return redirect("/")
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
