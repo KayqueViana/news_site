@@ -1,47 +1,33 @@
-# Verion of docker-compose to use 
 version: "3"
 
 services:
-  news_site:
+  web:
     build: . 
-
-    # Maps port on the local machine to port on Docker image
-    ports:
-      - "8000:8000"
-      
+    command: python manage.py runserver 0.0.0.0:8000     
     volumes: 
-      - .:/django_news_site
-    
-    # Handles the command used to run the project in the Docker container.
-    command: python manage.py runserver 0.0.0.0:8000
-
-    environment:
-        # The environment variable credetials that is needed 
-      # in the settings for Postgres.
-      - DB_HOST=localhost
-      - DB_NAME=news
-      - DB_USER=postgres
-      - DB_PASS=admin305
+      - .:/code
+    ports:
+      - 8000:8000
     depends_on:
       - db
+    env_file:
+      - .env
 
   db:
-    image: postgres:15
-    restart: always
-    user: postgres
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+    image: postgres:15.0
     environment:
-      - POSTGRES_DB=news
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=admin305
+      POSTGRES_DB: news
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin305
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - 5432:5432
     networks:
       - postgres 
 
 volumes:
-  pgdata:
+  postgres_data:
 
 networks:
   postgres:
