@@ -60,7 +60,21 @@ $(document).ready(function() {
     });
 });
 
-$('.nav-link').on('click', function(event){
+$(document).ready(function() {
+  $("#comments-carousel").lightSlider({
+    loop: true,
+    item: 3,
+    auto: true,
+    pauseOnHover: true,
+    slideMargin: 10,
+    speed: 1000,
+    pause: 5000,
+    pager: false,
+    adaptiveHeight: true,
+});
+});
+
+$('.scroll-to').on('click', function(event){
   event.preventDefault();
   let section  = $(this).attr('href');
   let top = $(section).offset().top - 78;

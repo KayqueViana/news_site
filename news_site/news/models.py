@@ -29,3 +29,15 @@ class Newsletter(models.Model):
     def __str__(self):
         return self.email
     
+class Comment(models.Model):
+    photo = models.ImageField(upload_to=upload_image_formater, blank=True, null=True)
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30, blank=True, null=True)
+    comment = models.TextField(max_length=250)
+    active = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.name + " " + self.surname
+    

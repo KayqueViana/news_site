@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Comentário{% endblock %}
+
+{% block content %}
+    <div>
+        <img src="https://th.bing.com/th/id/R.620dc5cab89cf7a11f213df6fb26b293?rik=s0%2falsQngsX8IQ&pid=ImgRaw&r=0" class="d-block w-100" alt="..." draggable="false">
+    </div>
+    <div>
+        <h1>Adicione seu comentário</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </form>
+    </div>
+
+{% endblock %}

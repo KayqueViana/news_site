@@ -4,20 +4,33 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.conf import settings
 
-from .models import Notice
-from .forms import NewsletterForm
+from .models import Notice, Comment
+from .forms import NewsletterForm, CommentForm
 
-from .serializers import NoticeSerializer
+from .serializers import NoticeSerializer, CommentSerializer
 
 def index(request):
     notices = Notice.objects.all()
-    serializer = NoticeSerializer(notices, many=True)
-    return render(request, "news/homepage.html", {"notices": serializer.data})
+    comments = Comment.objects.all()
+    noticeSerializer = NoticeSerializer(notices, many=True)
+    commentSerializer = CommentSerializer(comments, many=True)
+    return render(request, "news/homepage.html", {"notices": noticeSerializer.data, "comments": commentSerializer.data})
 
 def noticeInternal(request, id):
    notice = get_object_or_404(Notice, pk=id)
    serializer = NoticeSerializer(notice)
    return render(request, "news/notice.html", {"notice": serializer.data})
+
+def commentPage(request):
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+    else:
+        form = CommentForm()
+        return render(request, "news/comment.html", {"form": form})
 
 def sendEmail(request):
     if request.method == 'POST':
