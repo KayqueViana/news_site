@@ -47,17 +47,19 @@
     <h3>Comentários</h3>
     <div class="card-deck" id="comments-carousel">
       {% for comment in comments %}
-        <div class="card">
-          <a href="">
+        <div class="cards">
+          <div class="card-image">
             {% if comment.photo %}
               <img class="card-img-top" src="{{comment.photo}}" alt="img">
             {% else %}
-              <img class="card-img-top" src="https://th.bing.com/th/id/R.620dc5cab89cf7a11f213df6fb26b293?rik=s0%2falsQngsX8IQ&pid=ImgRaw&r=0" alt="img">  
+              <img class="card-img-top" src="https://yt3.ggpht.com/a/AATXAJxme8fdo-cDKfjHyzlScrz4F6_77Uu5wxmKCA=s900-c-k-c0xffffffff-no-rj-mo" alt="img">  
             {% endif %}
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">{{comment.name}} {{comment.surname}}</h5>
-            <p class="card-text">{{comment.comment}}</p>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{comment.name}} {{comment.surname}}</h5>
+              <p class="card-text">{{comment.comment}}</p>
+            </div>
           </div>
         </div>
       {% endfor %}

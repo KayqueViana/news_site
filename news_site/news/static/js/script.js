@@ -63,12 +63,13 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("#comments-carousel").lightSlider({
     loop: true,
-    item: 3,
+    item: 4,
     auto: true,
     pauseOnHover: true,
     slideMargin: 10,
     speed: 1000,
     pause: 5000,
+    controls: false,
     pager: false,
     adaptiveHeight: true,
 });

@@ -14,6 +14,9 @@ def index(request):
     comments = Comment.objects.all()
     noticeSerializer = NoticeSerializer(notices, many=True)
     commentSerializer = CommentSerializer(comments, many=True)
+    for notice in  noticeSerializer.data:
+        if len(notice["description"]) > 150:
+            notice["description"] = notice["description"][0:150] + "..."
     return render(request, "news/homepage.html", {"notices": noticeSerializer.data, "comments": commentSerializer.data})
 
 def noticeInternal(request, id):

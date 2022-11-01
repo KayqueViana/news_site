@@ -108,19 +108,35 @@
     color:rgb(177, 26, 26);
     position: relative;
 }
-.comments-field .card-deck .card{
+.comments-field .card-deck .cards{
     margin-top: 10px;
     margin-left: 10px;
     display: inline-block;
     max-width: 30%;
     max-height: 450px;
 }
+
+.comments-field .card-deck .card-image{
+    z-index: 90;
+    position: relative;
+    top: 30px;
+}
 .comments-field .card-deck .card-img-top{
-    height: 250px;
+    border-radius: 100%;
+    border: solid;
+    border-width: 5px;
+    border-color: #fff;
+    width: 130px;
+    height: 130px;
     object-fit: cover;
 }
 .comments-field .card-deck .card-body{
+    background-color: #202020;
+    color: #fff;
     height: 250px;
+}
+.comments-field .card-deck .card .card-body h5{
+    margin-top: 20px;
 }
 
 /* página interna  */
