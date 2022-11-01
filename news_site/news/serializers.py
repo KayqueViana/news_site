@@ -15,13 +15,7 @@ class NoticeSerializer(ModelSerializer):
         fields = ["id", "image", "title", "subtitle", "date", "description", "highlighted", "photo", "author", "bibliography", "updated_at"]
         
 class CommentSerializer(ModelSerializer):
-    
-    def to_representation(self, instance):
-        representation = super(CommentSerializer, self).to_representation(instance)
-        representation['created-at'] = instance.updated_at.strftime('%d/%m/%Y')
-        return representation
-    
     class Meta:
         model = Comment
-        fields = ["id", "photo", "name", "surname", "comment", "active", "created_at"]
+        fields = ["id", "photo", "name", "surname", "comment", "active",]
     

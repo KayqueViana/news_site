@@ -75,6 +75,27 @@ $(document).ready(function() {
 });
 });
 
+if($("#successModal").length > 0){
+  function scroll() {
+    let section  = $(".newsletter");
+    let top = $(section).offset().top - 78;
+    $('html').animate({
+      scrollTop: top
+    }, 500);
+  }
+
+  scroll();
+
+  let successModal = new bootstrap.Modal(document.getElementById('successModal'), {
+    keyboard: false
+  });
+  successModal.show();
+
+  $("#confirmSuccess").on("click", function(){
+    successModal.hide();
+  })
+}
+
 $('.scroll-to').on('click', function(event){
   event.preventDefault();
   let section  = $(this).attr('href');

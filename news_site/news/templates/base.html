@@ -82,6 +82,7 @@
               </div>
             </div>
           </div>
+
            <div class="modal" tabindex="-1" id="failModal">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -98,6 +99,27 @@
               </div>
             </div>
           </div>
+
+          {% if messages %}
+            {% for message in messages %}
+              <div class="modal" tabindex="-1" id="successModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Sucesso</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>{{ message }}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="confirmSuccess">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
           </div>
         </form>
         <footer id="footer">

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
+from django.contrib import messages
 from django.conf import settings
 
 from .models import Notice, Comment
@@ -46,5 +47,6 @@ def sendEmail(request):
             from_email = settings.EMAIL_HOST_USER
             to = request.POST["email"]
             send_mail(subject, message, from_email, [to])
+            messages.info(request, "Email enviado com sucesso!!")
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
